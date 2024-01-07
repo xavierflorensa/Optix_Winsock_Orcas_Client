@@ -24,7 +24,8 @@ public class RuntimeNetLogic1 : BaseNetLogic
     
     public void Send()
     {
-       
+        string text_to_send = "Hello World";
+        winsock_Ear.Send(text_to_send);
     }
 
     public override void Start()
@@ -32,6 +33,10 @@ public class RuntimeNetLogic1 : BaseNetLogic
        winsock_Ear.LegacySupport=true;
         //winsock_Ear.Listen(2000);//This is to make the PC act as host
         winsock_Ear.Connect("127.0.0.1", 2000); //This is to make the PC act as client
+        // Assign a callback to be excuted when the client is connected
+        //Winsock_Ear.Connected += winsock_Ear_Connected;
+        // Assign a callback to be executed when a message is received from the server
+        winsock_Ear.ConnectionRequest += winsock_Ear_ConnectionRequest;
         Log.Info("LocalIP: "+winsock_Ear.LocalIP[0]);
         Log.Info("protocol: "+winsock_Ear.Protocol.ToString());
         Log.Info("Legacy support: "+winsock_Ear.LegacySupport.ToString());
@@ -49,5 +54,17 @@ public class RuntimeNetLogic1 : BaseNetLogic
     {
          Log.Info("Stopping");
     }
+    //this is the callback function that will execute when a client is connected
+    private void winsock_Ear_Connected(object sender, Winsock_Orcas.WinsockConnectedEventArgs e)
+        {
+            Log.Info("¡¡Conectado!!");
+        }
+    //this is the callback function that will execute after the first connection request
+    private void winsock_Ear_ConnectionRequest(object sender, Winsock_Orcas.WinsockConnectionRequestEventArgs e)
+        {
+            winsock_Ear.Close();
+            winsock_Ear.Accept(e.Client);
+        }
+    private Winsock Winsock_Ear;
  }  
 

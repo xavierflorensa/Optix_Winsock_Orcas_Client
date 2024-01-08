@@ -37,6 +37,8 @@ public class RuntimeNetLogic1 : BaseNetLogic
         //Winsock_Ear.Connected += winsock_Ear_Connected;
         // Assign a callback to be executed when a message is received from the server
         winsock_Ear.ConnectionRequest += winsock_Ear_ConnectionRequest;
+        // Assign a callback to be executed when data is available from server
+        winsock_Ear.DataArrival += winsock_Ear_DataArrival;
         Log.Info("LocalIP: "+winsock_Ear.LocalIP[0]);
         Log.Info("protocol: "+winsock_Ear.Protocol.ToString());
         Log.Info("Legacy support: "+winsock_Ear.LegacySupport.ToString());
@@ -64,6 +66,11 @@ public class RuntimeNetLogic1 : BaseNetLogic
         {
             winsock_Ear.Close();
             winsock_Ear.Accept(e.Client);
+        }
+    private void winsock_Ear_DataArrival(object sender, Winsock_Orcas.WinsockDataArrivalEventArgs e)
+        {
+            string abRecibidos = winsock_Ear.Get<string>();
+           Log.Info("recibido: "+ abRecibidos);
         }
     private Winsock Winsock_Ear;
  }  

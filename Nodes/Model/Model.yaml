@@ -5,3 +5,7 @@ Children:
   Type: BaseDataVariableType
   DataType: String
   Value: "0"
+- Name: RemoteIP
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "127.0.0.1"

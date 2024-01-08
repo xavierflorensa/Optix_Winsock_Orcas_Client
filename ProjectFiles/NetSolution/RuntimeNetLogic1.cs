@@ -28,11 +28,19 @@ public class RuntimeNetLogic1 : BaseNetLogic
         winsock_Ear.Send(text_to_send.Text);
     }
 
+     [ExportMethod]
+    
+    public void Connect()
+    {
+        var remoteIP = Project.Current.GetVariable("Model/RemoteIP");
+        winsock_Ear.Connect(remoteIP.Value, 2000);
+    }
+
     public override void Start()
     {
        winsock_Ear.LegacySupport=true;
         //winsock_Ear.Listen(2000);//This is to make the PC act as host
-        winsock_Ear.Connect("127.0.0.1", 2000); //This is to make the PC act as client
+        //winsock_Ear.Connect("127.0.0.1", 2000); //This is to make the PC act as client
         // Assign a callback to be excuted when the client is connected
         //Winsock_Ear.Connected += winsock_Ear_Connected;
         // Assign a callback to be executed when a message is received from the server

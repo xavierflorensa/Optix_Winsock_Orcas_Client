@@ -160,153 +160,89 @@ Managing to use callback functions to have chances to send several messages
 
 Using this code with the callback function
 
-` `//this is the callback function that will execute after the first connection request
+```C#
+//this is the callback function that will execute after the first connection request
+    private void winsock_Ear_ConnectionRequest(object sender, Winsock_Orcas.WinsockConnectionRequestEventArgs e)
+        {
+            winsock_Ear.Close();
+            winsock_Ear.Accept(e.Client);
+        }
 
-`    `private void winsock\_Ear\_ConnectionRequest(object sender, Winsock\_Orcas.WinsockConnectionRequestEventArgs e)
-
-`        `{
-
-`            `winsock\_Ear.Close();
-
-`            `winsock\_Ear.Accept(e.Client);
-
-`        `}
+```
 
 This is the complete code
 
+```C#
 #region Using directives
-
 using System;
-
 using UAManagedCore;
-
 using OpcUa = UAManagedCore.OpcUa;
-
 using FTOptix.HMIProject;
-
 using FTOptix.Retentivity;
-
 using FTOptix.UI;
-
 using FTOptix.NativeUI;
-
 using FTOptix.CoreBase;
-
 using FTOptix.Core;
-
 using FTOptix.NetLogic;
-
-using Winsock\_Orcas;
-
+using Winsock_Orcas;
 using System.Reflection.Emit;
-
 using System.Net.Sockets;
-
 using System.Net.Security;
-
 using System.Net.Http;
-
 #endregion
 
 public class RuntimeNetLogic1 : BaseNetLogic
-
 {
+    Winsock winsock_Ear = new Winsock(); //opens a new socket
+    
+    [ExportMethod]
+    
+    public void Send()
+    {
+        string text_to_send = "Hello World";
+        winsock_Ear.Send(text_to_send);
+    }
 
-`    `Winsock winsock\_Ear = new Winsock(); //opens a new socket
-
-
-
-`    `[ExportMethod]
-
-
-
-`    `public void Send()
-
-`    `{
-
-`        `string text\_to\_send = "Hello World";
-
-`        `winsock\_Ear.Send(text\_to\_send);
-
-`    `}
-
-`    `public override void Start()
-
-`    `{
-
-`       `winsock\_Ear.LegacySupport=true;
-
-`        `//winsock\_Ear.Listen(2000);//This is to make the PC act as host
-
-`        `winsock\_Ear.Connect("127.0.0.1", 2000); //This is to make the PC act as client
-
-`        `// Assign a callback to be excuted when the client is connected
-
-`        `//Winsock\_Ear.Connected += winsock\_Ear\_Connected;
-
-`        `// Assign a callback to be executed when a message is received from the server
-
-`        `winsock\_Ear.ConnectionRequest += winsock\_Ear\_ConnectionRequest;
-
-`        `Log.Info("LocalIP: "+winsock\_Ear.LocalIP[0]);
-
-`        `Log.Info("protocol: "+winsock\_Ear.Protocol.ToString());
-
-`        `Log.Info("Legacy support: "+winsock\_Ear.LegacySupport.ToString());
-
-`        `Log.Info("LocalPort: "+winsock\_Ear.LocalPort.ToString());
-
-`        `Log.Info("Remote Host: "+winsock\_Ear.RemoteHost.ToString());
-
-`        `Log.Info("Remote Port: "+winsock\_Ear.RemotePort.ToString());
-
-`        `Log.Info("State: "+winsock\_Ear.State.ToString());
-
-`        `Log.Info("Hello World");
-
-`        `string text\_to\_send = "Hello World";
-
-`        `winsock\_Ear.Send(text\_to\_send);
-
-`    `}   
-
-
-
-`    `public override void Stop()
-
-`    `//public override void Stop()
-
-`    `{
-
-`         `Log.Info("Stopping");
-
-`    `}
-
-`    `//this is the callback function that will execute when a client is connected
-
-`    `private void winsock\_Ear\_Connected(object sender, Winsock\_Orcas.WinsockConnectedEventArgs e)
-
-`        `{
-
-`            `Log.Info("¡¡Conectado!!");
-
-`        `}
-
-`    `//this is the callback function that will execute after the first connection request
-
-`    `private void winsock\_Ear\_ConnectionRequest(object sender, Winsock\_Orcas.WinsockConnectionRequestEventArgs e)
-
-`        `{
-
-`            `winsock\_Ear.Close();
-
-`            `winsock\_Ear.Accept(e.Client);
-
-`        `}
-
-`    `private Winsock Winsock\_Ear;
-
-` `}  
+    public override void Start()
+    {
+       winsock_Ear.LegacySupport=true;
+        //winsock_Ear.Listen(2000);//This is to make the PC act as host
+        winsock_Ear.Connect("127.0.0.1", 2000); //This is to make the PC act as client
+        // Assign a callback to be excuted when the client is connected
+        //Winsock_Ear.Connected += winsock_Ear_Connected;
+        // Assign a callback to be executed when a message is received from the server
+        winsock_Ear.ConnectionRequest += winsock_Ear_ConnectionRequest;
+        Log.Info("LocalIP: "+winsock_Ear.LocalIP[0]);
+        Log.Info("protocol: "+winsock_Ear.Protocol.ToString());
+        Log.Info("Legacy support: "+winsock_Ear.LegacySupport.ToString());
+        Log.Info("LocalPort: "+winsock_Ear.LocalPort.ToString());
+        Log.Info("Remote Host: "+winsock_Ear.RemoteHost.ToString());
+        Log.Info("Remote Port: "+winsock_Ear.RemotePort.ToString());
+        Log.Info("State: "+winsock_Ear.State.ToString());
+        Log.Info("Hello World");
+        string text_to_send = "Hello World";
+        winsock_Ear.Send(text_to_send);
+    }   
+        
+    public override void Stop()
+    //public override void Stop()
+    {
+         Log.Info("Stopping");
+    }
+    //this is the callback function that will execute when a client is connected
+    private void winsock_Ear_Connected(object sender, Winsock_Orcas.WinsockConnectedEventArgs e)
+        {
+            Log.Info("¡¡Conectado!!");
+        }
+    //this is the callback function that will execute after the first connection request
+    private void winsock_Ear_ConnectionRequest(object sender, Winsock_Orcas.WinsockConnectionRequestEventArgs e)
+        {
+            winsock_Ear.Close();
+            winsock_Ear.Accept(e.Client);
+        }
+    private Winsock Winsock_Ear;
+ }  
+```
 
 <https://github.com/xavierflorensa/Optix_Winsock_Orcas_Client.git>
 

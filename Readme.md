@@ -6,7 +6,7 @@
 
 [2.1.	Installing external references (dll libraries) into the project with Visual Studio Code](#_toc157019702)
 
-[3.	Building the Server](#_toc157019703)
+[3.	Building the Client](#_toc157019703)
 
 
 

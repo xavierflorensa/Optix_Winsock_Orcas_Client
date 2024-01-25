@@ -134,27 +134,19 @@ Test the program with a TCP server
 
 First open the server and put it to listen on port 2000
 
-![A screenshot of a computer
-
-Description automatically generated](Aspose.Words.c171ae06-3fad-45e0-86a4-81bffd2c0ee2.016.png)
+![Aspose Words c171ae06-3fad-45e0-86a4-81bffd2c0ee2 016](https://github.com/xavierflorensa/Optix_Winsock_Orcas_Client/assets/55208134/108b18be-e9b2-4b00-873a-53e2ca2e0e27)
 
 Now the server is listening
 
-![A screenshot of a computer
-
-Description automatically generated]
+![Aspose Words c171ae06-3fad-45e0-86a4-81bffd2c0ee2 017](https://github.com/xavierflorensa/Optix_Winsock_Orcas_Client/assets/55208134/90f913f3-62dc-47ea-a4a5-5308db36a8fe)
 
 Next start the Optix project
 
-![A screenshot of a computer
-
-Description automatically generated]
+![Aspose Words c171ae06-3fad-45e0-86a4-81bffd2c0ee2 018](https://github.com/xavierflorensa/Optix_Winsock_Orcas_Client/assets/55208134/1fbd0755-9656-4c88-be49-1d941b9737cb)
 
 This is working.
 
-![A screenshot of a computer
-
-Description automatically generated](Aspose.Words.c171ae06-3fad-45e0-86a4-81bffd2c0ee2.018.png)
+![Aspose Words c171ae06-3fad-45e0-86a4-81bffd2c0ee2 019](https://github.com/xavierflorensa/Optix_Winsock_Orcas_Client/assets/55208134/9ea19307-9e7b-48bf-8d3c-a02c55385a99)
 
 But the connection is made and sending one message is done in one step, and then no chances to send more messages.
 
@@ -166,9 +158,7 @@ Description automatically generated](Aspose.Words.c171ae06-3fad-45e0-86a4-81bffd
 
 Managing to use callback functions to have chances to send several messages
 
-![A screenshot of a computer
-
-Description automatically generated](Aspose.Words.c171ae06-3fad-45e0-86a4-81bffd2c0ee2.020.png)
+![Aspose Words c171ae06-3fad-45e0-86a4-81bffd2c0ee2 020](https://github.com/xavierflorensa/Optix_Winsock_Orcas_Client/assets/55208134/7f725466-7d40-4c51-ade3-b654744fdc67)
 
 Using this code with the callback function
 

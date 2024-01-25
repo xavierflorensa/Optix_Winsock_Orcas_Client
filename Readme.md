@@ -142,19 +142,17 @@ Now the server is listening
 
 Next start the Optix project
 
-![Aspose Words c171ae06-3fad-45e0-86a4-81bffd2c0ee2 018](https://github.com/xavierflorensa/Optix_Winsock_Orcas_Client/assets/55208134/1fbd0755-9656-4c88-be49-1d941b9737cb)
+![Aspose Words c171ae06-3fad-45e0-86a4-81bffd2c0ee2 017](https://github.com/xavierflorensa/Optix_Winsock_Orcas_Client/assets/55208134/90f913f3-62dc-47ea-a4a5-5308db36a8fe)
 
 This is working.
 
-![Aspose Words c171ae06-3fad-45e0-86a4-81bffd2c0ee2 019](https://github.com/xavierflorensa/Optix_Winsock_Orcas_Client/assets/55208134/9ea19307-9e7b-48bf-8d3c-a02c55385a99)
+![Aspose Words c171ae06-3fad-45e0-86a4-81bffd2c0ee2 018](https://github.com/xavierflorensa/Optix_Winsock_Orcas_Client/assets/55208134/1fbd0755-9656-4c88-be49-1d941b9737cb)
 
 But the connection is made and sending one message is done in one step, and then no chances to send more messages.
 
 Pending to improve this.
 
-![A screenshot of a computer
-
-Description automatically generated](Aspose.Words.c171ae06-3fad-45e0-86a4-81bffd2c0ee2.019.png)
+![Aspose Words c171ae06-3fad-45e0-86a4-81bffd2c0ee2 019](https://github.com/xavierflorensa/Optix_Winsock_Orcas_Client/assets/55208134/9ea19307-9e7b-48bf-8d3c-a02c55385a99)
 
 Managing to use callback functions to have chances to send several messages
 

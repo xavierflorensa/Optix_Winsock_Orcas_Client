@@ -18,7 +18,7 @@ You can see the result here
 
 You can download the code from here
 
-<https://github.com/xavierflorensa/Optix_Winsock_Orcas_Server.git>
+<https://github.com/xavierflorensa/Optix_Winsock_Orcas_Client.git>
 
 You can use third party libraries.
 

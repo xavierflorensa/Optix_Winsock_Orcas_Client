@@ -246,10 +246,7 @@ public class RuntimeNetLogic1 : BaseNetLogic
 
 <https://github.com/xavierflorensa/Optix_Winsock_Orcas_Client.git>
 
-[A screenshot of a computer
+You can also see how to build the Server in this repository
+<https://github.com/xavierflorensa/Optix_Winsock_Orcas_Server.git>
 
-Description automatically generated]: Aspose.Words.c171ae06-3fad-45e0-86a4-81bffd2c0ee2.001.png
-[A screenshot of a computer
-
-Description automatically generated]: Aspose.Words.c171ae06-3fad-45e0-86a4-81bffd2c0ee2.017.png
 
